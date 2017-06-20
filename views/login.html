@@ -1,0 +1,43 @@
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../paper-input/paper-input.html">
+  <link rel="import" href="/paper-button/paper-button.html">
+  <style>
+    paper-input {
+        max-width: 400px;
+        margin: auto;
+    }
+    paper-button.indigo {
+        background-color: var(--paper-indigo-500);
+        color: white;
+        --paper-button-raised-keyboard-focus: {
+            background-color: var(--paper-pink-a200) !important;
+            color: white !important;
+        };
+        
+    }
+    paper-button.indigo:hover {
+        background-color: var(--paper-indigo-400);
+    }
+  </style>
+</head>
+<body>
+    <form is="iron-form" id="form" method="post" action="/form/handler">
+        <paper-input label="username"></paper-input>
+        <paper-input label="password"></paper-input>
+        <div align="center">
+            <paper-button raised onclick="submitForm()" class="indigo">Log in</paper-button>
+        </div>
+    </form>
+    <script>
+        function submitForm() {
+            document.getElementById('form').submit();
+        }
+    </script>
+</body>
+</html>
